@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require './lib/recipe'
 require './lib/ingredient'
 require './lib/cook_book'
@@ -19,6 +20,13 @@ class CookBookTest < Minitest::Test
 
   def test_it_exists
     assert_instance_of CookBook, @cookbook
+  end
+
+  def test_it_has_a_date
+    assert_instance_of String, @cookbook.date
+    assert_equal 10, @cookbook.date.length
+    Date.today.stubs(:strftimeg).returns("2020", "04", "22")
+    assert_equal "04-22-2020", @cookbook.date
   end
 
   def test_it_add_recipe

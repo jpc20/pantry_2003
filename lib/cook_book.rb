@@ -5,6 +5,10 @@ class CookBook
     @recipes = []
   end
 
+  def date
+    Date.today.strftime(("%m-%d-%Y"))
+  end
+
   def add_recipe(recipe)
     @recipes << recipe
   end
