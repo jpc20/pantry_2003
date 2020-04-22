@@ -10,7 +10,6 @@ class RecipeTest < Minitest::Test
     @recipe2 = Recipe.new("Cheese Burger")
     @ingredient1 = Ingredient.new({name: "Cheese", unit: "oz", calories: 50})
     @ingredient2 = Ingredient.new({name: "Macaroni", unit: "oz", calories: 200})
-    @cookbook = CookBook.new
   end
 
   def test_it_exists
@@ -38,7 +37,7 @@ class RecipeTest < Minitest::Test
     @recipe1.add_ingredient(@ingredient1, 4)
     @recipe1.add_ingredient(@ingredient2, 8)
 
-    assert_equal [@ingredient1, @ingredient2 ], @recipe1.ingredients_required
+    assert_equal [@ingredient1, @ingredient2 ], @recipe1.ingredients
   end
 
 end
